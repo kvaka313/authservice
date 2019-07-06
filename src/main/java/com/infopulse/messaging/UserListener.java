@@ -26,6 +26,6 @@ public class UserListener {
     public void onTenantEvent(Message<Payload> message) {
       Payload<UserDTO> payload = message.getPayload();
       UserDTO userDTO = payload.getObjectToSend();
-
+      userService.insert(userDTO);
     }
 }

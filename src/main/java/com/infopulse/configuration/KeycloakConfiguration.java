@@ -22,10 +22,11 @@ public class KeycloakConfiguration {
     ServletRegistrationBean keycloakJaxRsApplication(KeycloakServerProperties keycloakServerProperties,
                                                      DataSource dataSource) throws Exception {
 
+        EmbeddedKeycloakApplication.keycloakServerProperties = keycloakServerProperties;
         mockJndiEnvironment(dataSource);
 
         ServletRegistrationBean servlet = new ServletRegistrationBean(new HttpServlet30Dispatcher());
-        servlet.addInitParameter("javax.ws.rs.Application", AuthApplication.class.getName());
+        servlet.addInitParameter("javax.ws.rs.Application", EmbeddedKeycloakApplication.class.getName());
 
         servlet.addInitParameter(ResteasyContextParameters.RESTEASY_SERVLET_MAPPING_PREFIX,
                 keycloakServerProperties.getServer().getContextPath());

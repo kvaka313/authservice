@@ -69,6 +69,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.9.7'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.7'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.7'
+    compile 'org.jboss.resteasy:resteasy-servlet-initializer:3.6.2.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.6.2.Final'
+    compile 'org.jboss.resteasy:resteasy-jaxb-provider:3.6.2.Final'
+    compile 'org.jboss.resteasy:resteasy-client:3.6.2.Final'
     compile 'org.infinispan:infinispan-core:9.4.4.Final'
 
     compile 'org.keycloak:keycloak-model-infinispan:6.0.1'
