@@ -69,22 +69,18 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.9.7'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.7'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.7'
-    compile 'org.jboss.resteasy:resteasy-servlet-initializer:3.6.2.Final'
-    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.6.2.Final'
-    compile 'org.jboss.resteasy:resteasy-jaxb-provider:3.6.2.Final'
-    compile 'org.jboss.resteasy:resteasy-client:3.6.2.Final'
     compile 'org.infinispan:infinispan-core:9.4.4.Final'
 
-    compile 'org.keycloak:keycloak-model-infinispan:6.0.1.Final'
-    compile ('org.keycloak:keycloak-services:6.0.1.Final'){
+    compile 'org.keycloak:keycloak-model-infinispan:6.0.1'
+    compile ('org.keycloak:keycloak-services:6.0.1'){
         exclude group: 'org.jboss.spec.javax.servlet', module:'jboss-servlet-api_3.0_spec'
     }
-    compile 'org.keycloak:keycloak-model-jpa:6.0.1.Final'
-    compile 'org.keycloak:keycloak-js-adapter:6.0.1.Final'
-    compile 'org.keycloak:keycloak-themes:6.0.1.Final'
-    compile 'org.keycloak:keycloak-saml-core:6.0.1.Final'
-    compile 'org.keycloak:keycloak-authz-policy-common:6.0.1.Final'
-    compile 'org.keycloak:keycloak-admin-client:6.0.1.Final'
+    compile 'org.keycloak:keycloak-model-jpa:6.0.1'
+    compile 'org.keycloak:keycloak-js-adapter:6.0.1'
+    compile 'org.keycloak:keycloak-themes:6.0.1'
+    compile 'org.keycloak:keycloak-saml-core:6.0.1'
+    compile 'org.keycloak:keycloak-authz-policy-common:6.0.1'
+    compile 'org.keycloak:keycloak-admin-client:6.0.1'
 
     compile 'org.freemarker:freemarker:2.3.28'
 
