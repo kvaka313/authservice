@@ -10,4 +10,3 @@ public interface UserInput {
     @Input(INPUT)
     SubscribableChannel input();
 }
-}
