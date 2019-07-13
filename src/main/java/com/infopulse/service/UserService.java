@@ -8,6 +8,7 @@ import org.keycloak.representations.idm.ClientRepresentation;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
@@ -24,7 +25,7 @@ public class UserService {
 
     private Validator validator;
 
-    public UserService(KeycloakConnection keycloakConnection, Validator validator){
+    public UserService(@Qualifier("broker") KeycloakConnection keycloakConnection, Validator validator){
         this.keycloakConnection = keycloakConnection;
         this.validator = validator;
     }
@@ -38,8 +39,8 @@ public class UserService {
         UserRepresentation userRepresentation = new UserRepresentation();
         userRepresentation.setEnabled(true);
         userRepresentation.setUsername(userDTO.getLogin());
-
         keycloakConnection.getKeycloakClient().realm("chat").users().create(userRepresentation);
+
         UsersResource usersResource = keycloakConnection.getKeycloakClient().realm("chat").users();
         List<UserRepresentation> userRepresentationList = usersResource.list();
         Optional<UserRepresentation> user = userRepresentationList.stream()
@@ -65,7 +66,7 @@ public class UserService {
                     .findFirst().get();
 
             List<RoleRepresentation> roleRepresentations = keycloakConnection.getKeycloakClient().realm("chat")
-                    .users().get(u.getId()).roles().clientLevel(clientRepresentation.getId()).listAll();
+                    .users().get(u.getId()).roles().clientLevel(clientRepresentation.getId()).listAvailable();
 
             RoleRepresentation role = roleRepresentations.stream()
             .filter(roleRep->roleRep.getName().equals("ROLE_USER"))

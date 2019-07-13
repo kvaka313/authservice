@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Payload<T> {
+public class Payload {
     private String event;
-    private T objectToSend;
+    private UserDTO objectToSend;
 }

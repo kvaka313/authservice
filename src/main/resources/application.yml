@@ -35,7 +35,7 @@ resteasy:
 
 keycloak:
   appRealm: chat
-  idmBrokerAuthUrl: http://localhost:8080/auth
+  idmBrokerAuthUrl: http://127.0.0.1:8080/auth
   idmBrokerApp: app-broker
   server:
     contextPath: /auth
